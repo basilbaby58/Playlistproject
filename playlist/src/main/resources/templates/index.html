@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+	<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+<div align = "center">
+	<br></br>
+	<h5 align = "center">playlist</h5>
+	<br></br>
+	<tr>
+	
+	<div class="col-sm-5" align = "center">
+                 <div class="panel-body" align = "center" >
+                 <table class="table">
+  <thead class="thead-dark">
+    <tr>
+     <th>PlayList ID</th>
+            <th>Name</th>
+            <th>Songs</th>
+            <th>     </th>
+   	</tr>
+  </thead>
+  <tbody>
+      <tr  th:each="playlist : ${listplaylist}">
+      <td th:text="${playlist.id}">PlaylistId</td>
+		<td th:text="${playlist.name}">Name</td>
+							    <td >  <h6 ><a  th:href="@{'/viewsong/' + ${playlist.id}}">view songs</a></h6>      </td>
+		<td>
+			<a th:href="@{'/delete/' + ${playlist.id}}">Delete playlist</a>
+		</td>		    
+		</tr> 
+   
+  </tbody>
+
+</table>
+                    
+                 </div>
+
+            </div> 
+
+	</tr>
+
+	</tbody>
+	  <tr>
+		<div align = "left" >		   
+		     <h5 align = "center"><a  th:href="@{'/addplaylist'}">Add New Playlist</a></h5>     
+	    </div>
+	
+	</tr>
+	</table>
+	<div>
+</body>
+</html>
